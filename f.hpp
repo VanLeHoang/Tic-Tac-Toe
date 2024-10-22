@@ -4,6 +4,7 @@
 #include <limits>
 
 inline
+//check the current state of the game
 void checkBoard(std::vector<std::vector<char>> b) {
   for (int i = 0; i < 3; i++) {
     std::cout << b[i][0] << "|" 
@@ -15,11 +16,13 @@ void checkBoard(std::vector<std::vector<char>> b) {
   }
 }
 
+//mark player's move
 std::vector<std::vector<char>> setMark(std::vector<std::vector<char>> b, int pos, char m) {
   b[(pos - 1) / 3][(pos - 1) % 3] = m;
   return b;
 }
 
+//prompt player and return their input
 int getPos(std::vector<std::vector<char>> b, int player) {
   int position = 0;
   std::cout << "__________________________________\n"
