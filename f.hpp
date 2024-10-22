@@ -10,9 +10,6 @@ void checkBoard(std::vector<std::vector<char>> b) {
     std::cout << b[i][0] << "|" 
          << b[i][1] << "|"
          << b[i][2] << "\n";
-    if (i < 2) {
-      std::cout << "_ _ _\n";
-    }
   }
 }
 
@@ -29,9 +26,7 @@ int getPos(std::vector<std::vector<char>> b, int player) {
             << "PLAYER " << player << " TURN\n"
             << "Select where to play (1-9)\n\n"
             << "1|2|3\n"
-            << "- - -\n"
             << "4|5|6\n"
-            << "- - -\n"
             << "7|8|9\n\n";
   while (true) {
     std::cout << "Your turn: ";
@@ -46,9 +41,9 @@ int getPos(std::vector<std::vector<char>> b, int player) {
     } else {  
       if (position < 1 || position > 9){
         std::cout << "Invalid input. Please enter an integer (1-9).\n";
-      } else if (b[(position - 1) / 3][(position - 1) % 3] != '.') {
+      } else if (b[(position - 1) / 3][(position - 1) % 3] != ' ') {
         std::cout << "This position is not available.\n"
-                  << "---CURRENT GAME---\n";
+                  << "\n---CURRENT GAME---\n\n";
         checkBoard(b);
       } else {
         return position;
