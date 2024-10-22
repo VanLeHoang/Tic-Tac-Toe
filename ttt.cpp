@@ -5,14 +5,14 @@
 
 //set up the board
 std::vector<std::vector<char>> board = {
-    {'.', '.', '.'},
-    {'.', '.', '.'},
-    {'.', '.', '.'},
+    {' ', ' ', ' '},
+    {' ', ' ', ' '},
+    {' ', ' ', ' '},
 };
 
 int main() { 
   int turn = 0;
-  char mark = '.';
+  char mark = ' ';
   int currPos = 0;
 
   std::cout << "WELCOME TO THE GAME OF TIC-TAC-TOE\n"
@@ -39,7 +39,7 @@ int main() {
       currPos = getPos(board, 2);
       board = setMark(board, currPos, mark);
       turn++;
-      std::cout << "---CURRENT GAME---\n";
+      std::cout << "\n---CURRENT GAME---\n\n";
       checkBoard(board);
       if (turn >= 6) {
         if (isWinner(board, currPos)) {
